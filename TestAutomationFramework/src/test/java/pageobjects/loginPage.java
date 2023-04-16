@@ -3,12 +3,9 @@ package pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import base.Base;
-
-public class loginPage extends Base {
+public class loginPage{
 
 	public loginPage(WebDriver driver) {
         
@@ -16,7 +13,7 @@ public class loginPage extends Base {
 	}
 	
 	
-	@FindBy(how = How.ID, using = "email")
+	@FindBy(id = "email")
 	private WebElement txtEmail;
 
 	@FindBy(id = "pass")

@@ -20,6 +20,17 @@ public class LoginTestCase extends Base {
 		setUp();
 		driver.get(prop.getProperty("url")); 
 	}
+	
+	@AfterMethod
+	public void closure(ITestResult result) throws IOException {
+		
+		if (result.getStatus()==ITestResult.FAILURE) {  // ITestResult Interface utility, It is the Dependency injection concept.
+			
+			ScreenshotUtility su = new ScreenshotUtility();
+			su.screenShot(result.getName(), driver);
+		}
+		driver.quit();
+	}
 
 	@Test(dataProvider = "drivertest")
 	public void login(String uName, String uPass) {
@@ -32,20 +43,10 @@ public class LoginTestCase extends Base {
 
 		userFBPage ufp = new userFBPage(driver);
 
-		Assert.assertTrue(ufp.optFindFriends().isDisplayed());
+		Assert.assertTrue(ufp.optHome().isDisplayed());
 
 	}
 
-	@AfterMethod
-	public void closure(ITestResult result) throws IOException {
-		
-		if (result.getStatus()==ITestResult.FAILURE) {
-			
-			ScreenshotUtility su = new ScreenshotUtility();
-			su.screenShot(result.getName(), driver);
-		}
-		driver.close();
-	}
 
 	@DataProvider(name = "drivertest")
 	public Object[][] dataSheet() throws IOException {

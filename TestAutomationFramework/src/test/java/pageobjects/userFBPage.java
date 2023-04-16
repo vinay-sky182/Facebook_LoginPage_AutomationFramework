@@ -5,18 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import base.Base;
 
-public class userFBPage extends Base {
+public class userFBPage{
 
 	public userFBPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		}
 	
-	@FindBy(xpath = "//span[text()='Friends']") 
-	WebElement optFindFriends;
+	@FindBy(xpath = "//span[contains(text(),'Home')]") 
+	WebElement optHome;
 	
-	public WebElement optFindFriends() {
-		return optFindFriends;
+	public WebElement optHome() {
+		return optHome;
 	}
 }

@@ -26,7 +26,7 @@ public class ReadXLdata extends Base {
 			int totalColumn = xs.getRow(0).getPhysicalNumberOfCells();
 			System.out.println("Total number of Column =" + totalColumn);
 
-			Object tData[][] = new Object[totalRows-1][totalColumn];
+			Object tData[][] = new Object[totalRows-1][totalColumn]; // Two D object array
 
 			for (int i = 1; i < totalRows; i++) {
 				for (int j = 0; j < totalColumn; j++) {
