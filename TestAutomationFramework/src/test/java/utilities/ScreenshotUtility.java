@@ -25,7 +25,7 @@ public class ScreenshotUtility{
 		}
 		
 		TakesScreenshot ts = (TakesScreenshot) driver;  // Typecast the driver to make compatible
-		File source = ts.getScreenshotAs(OutputType.FILE); // This is the Raw format of file.
+		File source = ts.getScreenshotAs(OutputType.FILE); // This is the Raw Non Human Readable format of file.
 		File destFile = new File("./Screenshot/" + screenshotSubFolderName+"/" +TestCase+".png"); // Convert the Raw format into Human Readable format and save in Screenshot folder with the name.
 		try {
 			FileUtils.copyFile(source, destFile);
